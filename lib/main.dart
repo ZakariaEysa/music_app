@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:on_audio_query/on_audio_query.dart';
-
 import 'Views/Gallery_Page.dart';
-
 import 'Views/Home_Page.dart';
 import 'models/audio_model.dart';
 import 'serveses/allsongs_list.dart';
@@ -13,7 +11,6 @@ late List<SongModel> audios1;
 void main() {
   runApp(const MyApp());
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
