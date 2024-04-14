@@ -1,8 +1,9 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'Gallery_Page.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import 'package:permission_handler/permission_handler.dart';
-
+import 'package:music_player2/Views/apiServes.dart';
 import '../main.dart';
 
 class Home_Page extends StatefulWidget {
@@ -19,6 +20,7 @@ class _Home_PageState extends State<Home_Page> {
   void initState() {
     super.initState();
     _requestPermission();
+    Future resp = newServes(Dio()).ApiRockets();
   }
 
   Future<void> _requestPermission() async {
@@ -47,7 +49,6 @@ class _Home_PageState extends State<Home_Page> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Container(

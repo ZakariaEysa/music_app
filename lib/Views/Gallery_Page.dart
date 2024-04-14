@@ -53,7 +53,7 @@ class _Gallery_PageState extends State<Gallery_Page> {
           //     ],
           //   ),
           // ),
-       //   const Discography_Pics_row(),
+          //   const Discography_Pics_row(),
           Padding(
             padding: const EdgeInsets.only(left: 15, bottom: 10),
             child: Row(
@@ -104,28 +104,21 @@ class _Pupular_Singles_ListState extends State<Pupular_Singles_List> {
     return Container(
       width: double.infinity,
       height: 400,
-
       child: ListView.builder(
         itemCount: audios1.length,
         itemBuilder: (context, index) {
           return GestureDetector(
-            onTap: (){
+            onTap: () {
+              Audio_Model.URI = audios1[index].uri;
 
-              Audio_Model.URI=audios1[index].uri;
-
-
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return Audio_Model();
-
-              },));
-
-
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) {
+                  return Audio_Model();
+                },
+              ));
             },
-
-
             child: Pupular_Singles(
-              Textt: audios1[index].title,
-
+              Textt: audios1[index].title.substring(4, 20),
               Pictures: "assets/Rectangle 32.png",
             ),
           );
