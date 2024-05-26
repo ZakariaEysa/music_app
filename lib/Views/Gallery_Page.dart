@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../main.dart';
 import '../models/audio_model.dart';
-import 'Discography_Row.dart';
+import '../serveses/dosstie_list.dart';
 import 'carousel_slider.dart';
 import '/serveses/allsongs_list.dart';
 
@@ -18,8 +18,9 @@ class _Gallery_PageState extends State<Gallery_Page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: Custmo_ButtomNavigatorBar(),
+      bottomNavigationBar: const Custmo_ButtomNavigatorBar(),
       backgroundColor: Colors.black,
+
       body: ListView(
         children: [
           const Carousel_slider(currentIndexPage: 0),
@@ -58,21 +59,21 @@ class _Gallery_PageState extends State<Gallery_Page> {
             padding: const EdgeInsets.only(left: 15, bottom: 10),
             child: Row(
               children: [
-                Text(
+                const Text(
                   " Popular Singles",
                   style: TextStyle(
                       color: Colors.white70,
                       fontWeight: FontWeight.bold,
                       fontSize: 25),
                 ),
-                Spacer(
+                const Spacer(
                   flex: 1,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(right: 15, bottom: 10, top: 5),
+                  padding: const EdgeInsets.only(right: 15, bottom: 10, top: 5),
                   child: GestureDetector(
                     onTap: () => Navigator.pushNamed(context, allsongs.id),
-                    child: Text(
+                    child: const Text(
                       "See all",
                       style: TextStyle(
                           color: Colors.amber,
@@ -84,7 +85,7 @@ class _Gallery_PageState extends State<Gallery_Page> {
               ],
             ),
           ),
-          Pupular_Singles_List(),
+          const Pupular_Singles_List(),
         ],
       ),
     );
@@ -101,7 +102,7 @@ class Pupular_Singles_List extends StatefulWidget {
 class _Pupular_Singles_ListState extends State<Pupular_Singles_List> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       height: 400,
       child: ListView.builder(
@@ -187,7 +188,7 @@ class Pupular_Singles extends StatelessWidget {
         child: Row(
           children: [
             Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(15))),
               child: Image.asset(
                 '${Pictures}',
@@ -195,21 +196,21 @@ class Pupular_Singles extends StatelessWidget {
               ),
             ),
             Container(
-                padding: EdgeInsets.all(13),
+                padding: const EdgeInsets.all(13),
                 alignment: Alignment.topCenter,
                 child: Text(
                   Textt!,
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.white70,
                       fontWeight: FontWeight.bold,
                       fontSize: 20),
                 )),
-            Spacer(
+            const Spacer(
               flex: 1,
             ),
             IconButton(
                 onPressed: () {},
-                icon: Icon(
+                icon: const Icon(
                   Icons.more_vert,
                   color: Colors.white70,
                   size: 45,
@@ -278,7 +279,12 @@ class Custmo_ButtomNavigatorBar extends StatelessWidget {
             child: Column(
               children: [
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                     // Navigator.pushNamed(context, Gallery_Page.id);
+
+
+                      Navigator.pop(context);
+                    },
                     icon: const Icon(
                       Icons.home,
                       color: Colors.white,
@@ -298,13 +304,19 @@ class Custmo_ButtomNavigatorBar extends StatelessWidget {
             child: Column(
               children: [
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+
+
+                       Navigator.pushNamed(context, ElDossrieallsongs.id);
+
+
+                    },
                     icon: const Icon(
-                      Icons.card_travel,
+                      Icons.music_note,
                       color: Colors.white,
                     )),
                 const Text(
-                  "Cart",
+                  "El dossari",
                   style: TextStyle(color: Colors.white),
                 )
               ],
@@ -353,14 +365,14 @@ class Row_Pictures extends StatelessWidget {
         child: Column(
           children: [
             Image.asset(
-              '${Pictures}',
+              '$Pictures',
               fit: BoxFit.fill,
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Container(
-                margin: EdgeInsets.only(left: 7),
+                margin: const EdgeInsets.only(left: 7),
                 alignment: Alignment.bottomLeft,
                 child: const Text(
                   "Dead inside",
