@@ -14,10 +14,7 @@ class allsongs extends StatefulWidget {
 class _allsongs extends State<allsongs> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(),
-      home: Scaffold(
+    return  Scaffold(
         appBar: AppBar(
           title: Text("Music List"),
         ),
@@ -68,7 +65,7 @@ class _allsongs extends State<allsongs> {
                     trailing: Icon(Icons.more_horiz),
                   ),
             )),
-      ),
+
     );
   }
 }

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:music_player2/models/audio_model.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:on_audio_query/on_audio_query.dart';
 
+import '../Views/Favourites_list.dart';
 import '../Views/Gallery_Page.dart';
 import '../main.dart';
 
@@ -156,7 +158,7 @@ class _allsongs extends State<ElDossrieallsongs> {
             itemCount: 114,
             itemBuilder: (context, index) => GestureDetector(
               onTap: (){
-                final base="https://server11.mp3quran.net/yasser/";
+                const base="https://server11.mp3quran.net/yasser/";
                 int  IIndex=index;
                 String  Sindex="$IIndex";
                 if(index<10){
@@ -173,12 +175,17 @@ class _allsongs extends State<ElDossrieallsongs> {
                 // print(url);
                 // print("  **************** ");
 
-
+                // SongModel ss = SongModel();
+                // ss.uri = url;
+                //
+                // Favorites.add(SongModel().uri=url);
 
 
 
 
                 Audio_Model.URI=url;
+
+
 
 
                 Navigator.push(context, MaterialPageRoute(builder: (context) {

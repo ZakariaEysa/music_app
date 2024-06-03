@@ -79,6 +79,8 @@ class _Home_PageState extends State<Home_Page> {
                       GestureDetector(
                         onTap: () {
 
+                          incrindex();
+
                             Navigator.pushNamed(context, Gallery_Page.id);
 
                         },

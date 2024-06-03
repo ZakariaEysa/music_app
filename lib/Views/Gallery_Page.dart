@@ -1,11 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:on_audio_query/on_audio_query.dart';
 import '../main.dart';
 import '../models/audio_model.dart';
 import '../serveses/dosstie_list.dart';
+import 'Favourites_list.dart';
+import 'Home_Page.dart';
 import 'carousel_slider.dart';
 import '/serveses/allsongs_list.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
+
+Future<void> FavouritesList_update( List<SongModel> Favorites ) async {
+
+
+await prefs.setStringList('Favourites', Favorites.map((e) => e.uri!).toList());
+
+}
 
 class Gallery_Page extends StatefulWidget {
+
   @override
   _Gallery_PageState createState() => _Gallery_PageState();
 
@@ -13,11 +25,18 @@ class Gallery_Page extends StatefulWidget {
 }
 
 class _Gallery_PageState extends State<Gallery_Page> {
+
+ // static List <Widget> pages = [Home_Page() ,ElDossrieallsongs(),Gallery_Page(),allsongs() ];
+
+
+
+
   int currentIndexPage = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       bottomNavigationBar: const Custmo_ButtomNavigatorBar(),
       backgroundColor: Colors.black,
 
@@ -109,6 +128,17 @@ class _Pupular_Singles_ListState extends State<Pupular_Singles_List> {
         itemCount: audios1.length,
         itemBuilder: (context, index) {
           return GestureDetector(
+            onDoubleTap: (){
+
+
+              setState(() {
+                Favorites.add(audios1[index]);
+                FavouritesList_update(Favorites);
+                print("***************");
+                print(Favorites[0]);
+                print("***************");
+              });
+            },
             onTap: () {
               Audio_Model.URI = audios1[index].uri;
 
@@ -209,7 +239,20 @@ class Pupular_Singles extends StatelessWidget {
               flex: 1,
             ),
             IconButton(
-                onPressed: () {},
+
+                onPressed: () {
+
+
+
+
+
+
+
+
+
+
+
+                },
                 icon: const Icon(
                   Icons.more_vert,
                   color: Colors.white70,
@@ -239,7 +282,11 @@ class Custmo_ButtomNavigatorBar extends StatelessWidget {
             child: Column(
               children: [
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => FavouritesList(),));
+
+                    },
                     icon: const Icon(
                       Icons.favorite_border,
                       color: Colors.white,
