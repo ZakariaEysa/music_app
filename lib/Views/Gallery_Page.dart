@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import '../main.dart';
@@ -9,10 +11,22 @@ import 'carousel_slider.dart';
 import '/serveses/allsongs_list.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 
-Future<void> FavouritesList_update( List<SongModel> Favorites ) async {
+Future<void> FavouritesList_Set( List<SongModel> Favorites ) async {
 
 
-await prefs.setStringList('Favourites', Favorites.map((e) => e.uri!).toList());
+//await prefs.setStringList('Favourites', Favorites.map((e) => e.uri!).toList());
+  print("**************");
+  print("8888888");
+  var s = json.encode(Favorites.toString());
+  await prefs.setString('Favourites', s);
+
+
+
+
+  print("**************");
+  print(Favorites);
+
+
 
 }
 
@@ -133,10 +147,16 @@ class _Pupular_Singles_ListState extends State<Pupular_Singles_List> {
 
               setState(() {
                 Favorites.add(audios1[index]);
-                FavouritesList_update(Favorites);
-                print("***************");
-                print(Favorites[0]);
-                print("***************");
+
+
+                // print(audios1);
+                // print("***************");
+                // print("***************");
+                // print(Favorites.length);
+                // print("***************");
+
+                FavouritesList_Set(Favorites);
+
               });
             },
             onTap: () {
