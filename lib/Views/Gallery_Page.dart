@@ -5,6 +5,7 @@ import 'package:on_audio_query/on_audio_query.dart';
 import '../main.dart';
 import '../models/audio_model.dart';
 import '../serveses/dosstie_list.dart';
+import '../serveses/staticVariables.dart';
 import 'Favourites_list.dart';
 import 'Home_Page.dart';
 import 'carousel_slider.dart';
@@ -15,16 +16,21 @@ Future<void> FavouritesList_Set( List<SongModel> Favorites ) async {
 
 
 //await prefs.setStringList('Favourites', Favorites.map((e) => e.uri!).toList());
+
+
   print("**************");
   print("8888888");
-  var s = json.encode(Favorites.toString());
-  await prefs.setString('Favourites', s);
+  //var s = json.encode(Favorites.toString());
+
+var s = json.encode(Favorites.toString());
+
+await prefs.setString('Favourites', s);
 
 
 
 
   print("**************");
-  print(Favorites);
+  print(s);
 
 
 

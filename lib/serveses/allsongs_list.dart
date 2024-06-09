@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:music_player2/models/audio_model.dart';
+import 'package:music_player2/serveses/staticVariables.dart';
 
 import '../main.dart';
 
@@ -22,10 +23,7 @@ class _allsongs extends State<allsongs> {
             itemCount: audios1.length,
             itemBuilder: (context, index) => GestureDetector(
               onTap: (){
-                // print(audios1[index]);
-                // print(audios1[index].duration);
-                // print(audios1[index].fileExtension);
-                // print(audios1[index].uri);
+
 
 
                         print("  ********* ");
