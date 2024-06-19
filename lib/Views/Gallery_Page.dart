@@ -5,26 +5,15 @@ import 'package:on_audio_query/on_audio_query.dart';
 import '../main.dart';
 import '../models/audio_model.dart';
 import '../serveses/dosstie_list.dart';
+import '../serveses/sharedServises.dart';
 import '../serveses/staticVariables.dart';
+import 'Discography_Row.dart';
 import 'Favourites_list.dart';
 import 'Home_Page.dart';
 import 'carousel_slider.dart';
 import '/serveses/allsongs_list.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 
-Future<void> FavouritesList_Set( List<String> Favorites ) async {
-
-
-
-
-await prefs.setStringList('Favourites', Favorites);
-
-
-
-
-
-
-}
 
 class Gallery_Page extends StatefulWidget {
 
@@ -145,11 +134,7 @@ class _Pupular_Singles_ListState extends State<Pupular_Singles_List> {
                 FavoritesUri.add(audios1[index].uri!);
 
 
-                // print(audios1);
-                // print("***************");
-                // print("***************");
-                // print(Favorites.length);
-                // print("***************");
+
 
                 FavouritesList_Set(FavoritesUri);
 
@@ -174,45 +159,7 @@ class _Pupular_Singles_ListState extends State<Pupular_Singles_List> {
             ),
           );
         },
-        // children: [
-        //   Pupular_Singles(
-        //     Pictures: "assets/Rectangle 32.png",
-        //
-        //   ),
-        //   Pupular_Singles(
-        //     Pictures: "assets/Rectangle 34.png",
-        //   ),
-        //   Pupular_Singles(
-        //     Pictures: "assets/Rectangle 38.png",
-        //   ),
-        //   Pupular_Singles(
-        //     Pictures: "assets/Rectangle 39.png",
-        //   ),
-        //   Pupular_Singles(
-        //     Pictures: "assets/Rectangle 32.png",
-        //   ),
-        //   Pupular_Singles(
-        //     Pictures: "assets/Rectangle 34.png",
-        //   ),
-        //   Pupular_Singles(
-        //     Pictures: "assets/Rectangle 38.png",
-        //   ),
-        //   Pupular_Singles(
-        //     Pictures: "assets/Rectangle 39.png",
-        //   ),
-        //   Pupular_Singles(
-        //     Pictures: "assets/Rectangle 32.png",
-        //   ),
-        //   Pupular_Singles(
-        //     Pictures: "assets/Rectangle 34.png",
-        //   ),
-        //   Pupular_Singles(
-        //     Pictures: "assets/Rectangle 38.png",
-        //   ),
-        //   Pupular_Singles(
-        //     Pictures: "assets/Rectangle 39.png",
-        //   ),
-        // ],
+
       ),
     );
   }

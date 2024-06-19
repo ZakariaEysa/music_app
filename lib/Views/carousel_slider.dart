@@ -1,13 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
+import '../serveses/staticVariables.dart';
 import 'dots_Indecator.dart';
 
-final List<String> imgList = [
-  'assets/111 1.png',
-  'assets/111 1.png',
-  'assets/111 1.png',
-];
+
 
 class Carousel_slider extends StatefulWidget {
   const Carousel_slider({
@@ -52,13 +49,13 @@ class _Carousel_sliderState extends State<Carousel_slider> {
                             width: 1000,
                           ),
                         ),
-                        Positioned(
-                          top: 120.0,
+                        const Positioned(
+                          top: 140.0,
                           left: 10.0,
                           right: 10.0,
                           child: Text(
-                            'A.L.O.N.E ${currentIndexPage}',
-                            style: const TextStyle(
+                            'Welcome To My APP',
+                            style: TextStyle(
                               color: Colors.white,
                               fontSize: 28,
                               fontWeight: FontWeight.bold,

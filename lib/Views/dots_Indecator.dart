@@ -1,7 +1,7 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 
-import 'carousel_slider.dart';
+import '../serveses/staticVariables.dart';
 
 class Dots_Indecator extends StatelessWidget {
   const Dots_Indecator({

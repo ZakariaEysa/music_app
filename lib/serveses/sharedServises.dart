@@ -3,6 +3,20 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../main.dart';
 
+Future<void> FavouritesList_Set( List<String> Favorites ) async {
+
+
+
+
+  await prefs.setStringList('Favourites', Favorites);
+
+
+
+
+
+
+}
+
 Future<void> sharedInitlize() async {
   try {
     prefs = await SharedPreferences.getInstance();

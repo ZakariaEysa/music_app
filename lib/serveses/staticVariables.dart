@@ -5,3 +5,10 @@ bool permissionGranted = false;
 // late  OnAudioQuery audioQuery1;
    List<SongModel> audios1=[];
  late SharedPreferences  prefs;
+ List<String> imgList = [
+  'assets/Wallpaper23.png',
+  'assets/Wallpaper5.png',
+  'assets/Wallpaper10.png',
+  'assets/Wallpaper21.png',
+  'assets/Rectangle 34.png',
+];
