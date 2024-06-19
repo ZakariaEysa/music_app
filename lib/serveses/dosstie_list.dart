@@ -184,6 +184,8 @@ class _allsongs extends State<ElDossrieallsongs> {
 
 
                 Audio_Model.URI=url;
+                Audio_Model.IMG="assets/dossry1.jpeg";
+
 
 
 

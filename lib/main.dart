@@ -1,15 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:music_player2/Views/StartPage.dart';
 import 'package:music_player2/serveses/FetchAudio.dart';
-import 'package:music_player2/serveses/dosstie_list.dart';
 import 'package:music_player2/serveses/sharedServises.dart';
 import 'package:music_player2/serveses/staticVariables.dart';
-import 'package:on_audio_query/on_audio_query.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'Views/Gallery_Page.dart';
-import 'Views/Home_Page.dart';
-import 'serveses/allsongs_list.dart';
 // Obtain shared preferences.
 
 // will edit soon ...
@@ -25,25 +19,28 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  Future<void> requestPermission() async {
-    final status = await Permission.audio.request();
-    if (status == PermissionStatus.granted) {
-      setState(() {
-      permissionGranted = true;
-      });
-      await fetchAudios();
-    } else {
 
-
-
-    }
-  }
   @override
   void initState() {
-    super.initState();
-     sharedInitlize();
+    Future.delayed(const Duration(milliseconds: 100), () async {
+    try {
+      await      sharedInitlize();
+    }catch (e){
+      print(e);
+    }
 
-    requestPermission();
+
+
+    });
+
+
+       fetchAudios();
+
+
+     super.initState();
+
+
+
 
   }
 
@@ -51,6 +48,6 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
 
 
-    return const Startpage();
+    return const start_page();
   }
 }

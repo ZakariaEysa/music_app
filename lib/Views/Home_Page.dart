@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import '../serveses/FetchAudio.dart';
 import '../serveses/sharedServises.dart';
+import '../serveses/staticVariables.dart';
 import 'Gallery_Page.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -13,36 +15,19 @@ class Home_Page extends StatefulWidget {
 }
 
 class _Home_PageState extends State<Home_Page> {
-  // bool _permissionGranted = false;
-  //
-  // @override
-  // void initState()   {
-  //   super.initState();
-  //   _requestPermission();
-  //  // await QuranWebServes().GetAllSongs();
-  //
-  // }
-  //
-  // Future<void> _requestPermission() async {
-  //   final status = await Permission.audio.request();
-  //   if (status == PermissionStatus.granted) {
-  //     setState(() {
-  //       _permissionGranted = true;
-  //     });
-  //     _fetchAudios();
-  //   } else {
-  //   }
-  // }
-  //
-  // Future<void> _fetchAudios() async {
-  //   final audioQuery = OnAudioQuery();
-  //   audios1 = await audioQuery.querySongs(
-  //     sortType: null,
-  //     orderType: OrderType.ASC_OR_SMALLER,
-  //     uriType: UriType.EXTERNAL,
-  //     ignoreCase: true,
-  //   );
-  // }
+  Future<void> requestPermission() async {
+    final status = await Permission.audio.request();
+    if (status == PermissionStatus.granted) {
+      setState(() {
+        permissionGranted = true;
+      });
+      await fetchAudios();
+    } else {
+
+
+
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,9 +65,23 @@ class _Home_PageState extends State<Home_Page> {
                       GestureDetector(
                         onTap: () {
 
-                          incrindex();
+                          if(permissionGranted==true){
+                            incrindex();
 
                             Navigator.pushNamed(context, Gallery_Page.id);
+
+                          }
+                          else{
+                            requestPermission();
+
+
+
+
+
+
+                          }
+
+
 
                         },
                         child: Container(

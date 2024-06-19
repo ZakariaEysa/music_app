@@ -15,12 +15,10 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 Future<void> FavouritesList_Set( List<SongModel> Favorites ) async {
 
 
-//await prefs.setStringList('Favourites', Favorites.map((e) => e.uri!).toList());
 
 
   print("**************");
   print("8888888");
-  //var s = json.encode(Favorites.toString());
 
 var s = json.encode(Favorites.toString());
 
@@ -166,10 +164,14 @@ class _Pupular_Singles_ListState extends State<Pupular_Singles_List> {
               });
             },
             onTap: () {
-              Audio_Model.URI = audios1[index].uri;
+
 
               Navigator.push(context, MaterialPageRoute(
                 builder: (context) {
+                  Audio_Model.IMG=null;
+                  Audio_Model.URI=null;
+                  Audio_Model.URI = audios1[index].uri;
+                  Audio_Model.IMG ="assets/Wallpaper21.png";
                   return Audio_Model();
                 },
               ));

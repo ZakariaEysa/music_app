@@ -30,7 +30,7 @@ class Audio_ModelState extends State<Audio_Model> with WidgetsBindingObserver {
 
   @override
   void initState() {
-    Audio_Model.IMG ??= "assets/Rectangle 39.png";
+    // Audio_Model.IMG ??= "assets/Rectangle 38.png";
 
     super.initState();
     ambiguate(WidgetsBinding.instance)!.addObserver(this);
@@ -43,12 +43,14 @@ class Audio_ModelState extends State<Audio_Model> with WidgetsBindingObserver {
 
   Future<void> _init() async {
     // Audio_Model.IMG ??= "assets/44 1.png";
-    Audio_Model.IMG ??= "assets/Rectangle 39.png";
+      // Audio_Model.IMG ??="assets/Wallpaper10.png";
 
 
 
 
-    // Inform the operating system of our app's audio attributes etc.
+
+
+       // Inform the operating system of our app's audio attributes etc.
     // We pick a reasonable default for an app that plays speech.
     final session = await AudioSession.instance;
     await session.configure(const AudioSessionConfiguration.speech());
@@ -104,9 +106,21 @@ class Audio_ModelState extends State<Audio_Model> with WidgetsBindingObserver {
   @override
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+
+    return Scaffold(
+
+        appBar:PreferredSize(
+        preferredSize: const Size.fromHeight(50), child: AppBar(
+
+
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          title: const Text('Playing Now',style: TextStyle(color: Colors.grey),),
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back,color: Colors.grey),
+            onPressed: () => Navigator.pop(context),
+          ),
+        ),  ),
         body: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
@@ -139,8 +153,7 @@ class Audio_ModelState extends State<Audio_Model> with WidgetsBindingObserver {
             ),
           ),
         ),
-      ),
-    );
+      );
   }
 
 }

@@ -26,18 +26,7 @@ class _allsongs extends State<allsongs> {
 
 
 
-                        print("  ********* ");
-                print(audios1[index]);
-                        print("  ********* ");
 
-                        print(audios1[index].album);
-                        print("  ********* ");
-
-                        print(audios1[index].artist);
-                        print("  ********* ");
-
-                        print(audios1[index].data);
-                        print("  ********* ");
 
 
 
