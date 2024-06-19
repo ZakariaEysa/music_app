@@ -12,23 +12,15 @@ import 'carousel_slider.dart';
 import '/serveses/allsongs_list.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 
-Future<void> FavouritesList_Set( List<SongModel> Favorites ) async {
+Future<void> FavouritesList_Set( List<String> Favorites ) async {
 
 
 
 
-  print("**************");
-  print("8888888");
-
-var s = json.encode(Favorites.toString());
-
-await prefs.setString('Favourites', s);
+await prefs.setStringList('Favourites', Favorites);
 
 
 
-
-  print("**************");
-  print(s);
 
 
 
@@ -150,7 +142,7 @@ class _Pupular_Singles_ListState extends State<Pupular_Singles_List> {
 
 
               setState(() {
-                Favorites.add(audios1[index]);
+                FavoritesUri.add(audios1[index].uri!);
 
 
                 // print(audios1);
@@ -159,7 +151,7 @@ class _Pupular_Singles_ListState extends State<Pupular_Singles_List> {
                 // print(Favorites.length);
                 // print("***************");
 
-                FavouritesList_Set(Favorites);
+                FavouritesList_Set(FavoritesUri);
 
               });
             },
@@ -171,7 +163,7 @@ class _Pupular_Singles_ListState extends State<Pupular_Singles_List> {
                   Audio_Model.IMG=null;
                   Audio_Model.URI=null;
                   Audio_Model.URI = audios1[index].uri;
-                  Audio_Model.IMG ="assets/Wallpaper21.png";
+                 Audio_Model.IMG ="assets/Wallpaper21.png";
                   return Audio_Model();
                 },
               ));

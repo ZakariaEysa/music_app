@@ -8,66 +8,26 @@ import '../serveses/custom_songmodel.dart';
 import '../serveses/staticVariables.dart';
 
 List<SongModel> Favorites = [];
+List<String> FavoritesUri=[];
 
 
 
 
 
 void FavouritesList_Get() {
+  FavoritesUri = prefs.getStringList('Favourites') ?? [];
+  for (SongModel song in audios1) {
+    if (FavoritesUri.contains(song.uri)) {
+
+      if(!Favorites.contains(song)){
+        Favorites.add(song);
 
 
+      }
+    }
+  }
 
-   String? apiResponse = prefs.getString('Favourites');
-
-   String fixApiResponse(String apiResponse) {
-     // Replace <unknown> with null
-     apiResponse = apiResponse.replaceAll('<unknown>', 'null');
-
-     // Replace double quotes (") with single quotes (') inside content URIs
-     apiResponse = apiResponse.replaceAllMapped(
-         RegExp(r'content://.+'), (match) => match.group(0)!.replaceAll('"', "'"));
-
-     // Replace single quotes (') with double quotes (") for keys and values
-     apiResponse = apiResponse.replaceAllMapped(
-         RegExp(r'\{.+?\}'), (match) => match.group(0)!.replaceAll("'", '"'));
-
-     return apiResponse;
-   }
-
-
-   String correctJson =fixApiResponse(apiResponse!);
-   correctJson=correctJson!.replaceAll("'", '"');
-
-
-   // dynamic jsonResponse = jsonDecode(correctJson);
-
-   // print(jsonResponse[0]["_uri"]);
-
-  List<CustomSongModel> songList = CustomSongModel.fromJsonString(correctJson);
-
-  // var value = prefs.getString('Favourites');
-  //
-  //
-  // String? apiResponse = prefs.getString('Favourites');
-  // Response response = jsonDecode(apiResponse!);
-  // // List<CustomSongModel> songList = CustomSongModel.fromJsonList(jsonResponse);
-  //
-  //
-  // print(response.data);
-  //
-  //
-  // var z = jsonDecode(value!);
-  //
-  // print("this is zz");
-  // print(z);
-  // print("end of  zz");
-
-//       //Favorites.clear();
-//       // for (var item in list) {
-//       //   Favorites.add(item);
-//       //
-//       //   print(Favorites.length);
-//       // }
+  print(Favorites.length);
 }
 
 class FavouritesList extends StatelessWidget {

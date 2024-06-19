@@ -30,7 +30,7 @@ class Audio_ModelState extends State<Audio_Model> with WidgetsBindingObserver {
 
   @override
   void initState() {
-    // Audio_Model.IMG ??= "assets/Rectangle 38.png";
+    Audio_Model.IMG ??="assets/Wallpaper21.png";
 
     super.initState();
     ambiguate(WidgetsBinding.instance)!.addObserver(this);
@@ -42,8 +42,6 @@ class Audio_ModelState extends State<Audio_Model> with WidgetsBindingObserver {
   }
 
   Future<void> _init() async {
-    // Audio_Model.IMG ??= "assets/44 1.png";
-      // Audio_Model.IMG ??="assets/Wallpaper10.png";
 
 
 
