@@ -1,22 +1,13 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:on_audio_query/on_audio_query.dart';
-import '../main.dart';
 import '../models/audio_model.dart';
 import '../serveses/dosstie_list.dart';
 import '../serveses/sharedServises.dart';
 import '../serveses/staticVariables.dart';
-import 'Discography_Row.dart';
 import 'Favourites_list.dart';
-import 'Home_Page.dart';
 import 'carousel_slider.dart';
 import '/serveses/allsongs_list.dart';
-import 'package:dropdown_button2/dropdown_button2.dart';
-
 
 class Gallery_Page extends StatefulWidget {
-
   @override
   _Gallery_PageState createState() => _Gallery_PageState();
 
@@ -24,21 +15,15 @@ class Gallery_Page extends StatefulWidget {
 }
 
 class _Gallery_PageState extends State<Gallery_Page> {
-
- // static List <Widget> pages = [Home_Page() ,ElDossrieallsongs(),Gallery_Page(),allsongs() ];
-
-
-
+  // static List <Widget> pages = [Home_Page() ,ElDossrieallsongs(),Gallery_Page(),allsongs() ];
 
   int currentIndexPage = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       bottomNavigationBar: const Custmo_ButtomNavigatorBar(),
       backgroundColor: Colors.black,
-
       body: ListView(
         children: [
           const Carousel_slider(currentIndexPage: 0),
@@ -120,47 +105,45 @@ class Pupular_Singles_List extends StatefulWidget {
 class _Pupular_Singles_ListState extends State<Pupular_Singles_List> {
   @override
   Widget build(BuildContext context) {
+
+    int counter;
+    if(audios1.length>10){
+      counter=10;
+    }
+    else{
+      counter=audios1.length;
+    }
     return SizedBox(
       width: double.infinity,
       height: 400,
       child: ListView.builder(
-        itemCount: audios1.length,
+        itemCount: counter,
         itemBuilder: (context, index) {
           return GestureDetector(
-            onDoubleTap: (){
-
-
+            onDoubleTap: () {
               setState(() {
                 FavoritesUri.add(audios1[index].uri!);
 
-
-
-
                 FavouritesList_Set(FavoritesUri);
-
               });
             },
             onTap: () {
-
-
               Navigator.push(context, MaterialPageRoute(
                 builder: (context) {
-                  Audio_Model.IMG=null;
-                  Audio_Model.URI=null;
+                  Audio_Model.IMG = null;
+                  Audio_Model.URI = null;
                   Audio_Model.URI = audios1[index].uri;
-                 Audio_Model.IMG ="assets/Wallpaper21.png";
+                  Audio_Model.IMG = "assets/Wallpaper21.png";
                   return Audio_Model();
                 },
               ));
             },
             child: Pupular_Singles(
-
               Textt: audios1[index].displayName,
               Pictures: "assets/Rectangle 32.png",
             ),
           );
         },
-
       ),
     );
   }
@@ -174,65 +157,56 @@ class Pupular_Singles extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (Pictures == null) {
-      Pictures = "assets/Rectangle 32.png";
-    }
+    Pictures ??= "assets/Rectangle 32.png";
 
     return Container(
       width: double.infinity,
       height: 120,
       child: Padding(
-        padding: const EdgeInsets.all(17),
-        child: Row(
-          children: [
-            Container(
-              decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(15))),
-              child: Image.asset(
-                '${Pictures}',
-                fit: BoxFit.fill,
-              ),
-            ),
-            Container(
-                padding: const EdgeInsets.all(13),
-                alignment: Alignment.topCenter,
-                child:  Text(
-                  Textt!,
-                  style: const TextStyle(
-                    height: 1.3,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
+          padding: const EdgeInsets.all(17),
+          child: Row(
+            children: [
+              Row(
+
+                children: [
+                  Container(
+                    decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(15))),
+                    child: Image.asset(
+                      '${Pictures}',
+                      fit: BoxFit.fill,
+                    ),
                   ),
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 2,
-                  textAlign: TextAlign.left,
-                ),),
-            const Spacer(
-              flex: 1,
-            ),
-            IconButton(
+                  Container(
+                    width: 224,
+                    padding: const EdgeInsets.only(left: 13),
+                    alignment: Alignment.center,
+                    child: Text(
+                      Textt!,
+                      style: const TextStyle(
 
-                onPressed: () {
-
-
-
-
-
-
-
-
-
-
-
-                },
-                icon: const Icon(
-                  Icons.more_vert,
-                  color: Colors.white70,
-                  size: 45,
-                ))
-          ],
-        ),
-      ),
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
+                ],
+              ),
+              Spacer(
+                flex: 1,
+              ),
+              IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.more_vert,
+                    color: Colors.white70,
+                    size: 45,
+                  )),
+            ],
+          )),
     );
   }
 }
@@ -255,9 +229,11 @@ class Custmo_ButtomNavigatorBar extends StatelessWidget {
               children: [
                 IconButton(
                     onPressed: () {
-
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => FavouritesList(),));
-
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const FavouritesList(),
+                          ));
                     },
                     icon: const Icon(
                       Icons.favorite_border,
@@ -299,8 +275,7 @@ class Custmo_ButtomNavigatorBar extends StatelessWidget {
               children: [
                 IconButton(
                     onPressed: () {
-                     // Navigator.pushNamed(context, Gallery_Page.id);
-
+                      // Navigator.pushNamed(context, Gallery_Page.id);
 
                       Navigator.pop(context);
                     },
@@ -324,11 +299,7 @@ class Custmo_ButtomNavigatorBar extends StatelessWidget {
               children: [
                 IconButton(
                     onPressed: () {
-
-
-                       Navigator.pushNamed(context, ElDossrieallsongs.id);
-
-
+                      Navigator.pushNamed(context, ElDossrieallsongs.id);
                     },
                     icon: const Icon(
                       Icons.music_note,
@@ -374,9 +345,7 @@ class Row_Pictures extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (Pictures == null) {
-      Pictures = "assets/Rectangle 32.png";
-    }
+    Pictures ??= "assets/Rectangle 32.png";
     return Container(
         margin: const EdgeInsets.all(10),
         height: 300,
