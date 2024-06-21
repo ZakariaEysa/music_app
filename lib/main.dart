@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:music_player2/Views/StartPage.dart';
-import 'package:music_player2/serveses/FetchAudio.dart';
 import 'package:music_player2/serveses/sharedServises.dart';
-import 'package:music_player2/serveses/staticVariables.dart';
 
-// will edit soon ...
-void main() {
+
+void main()  {
+
+
   runApp(const MyApp());
 }
 
@@ -19,23 +19,33 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   void initState() {
-    Future.delayed(const Duration(milliseconds: 100), () async {
-      try {
-        await sharedInitlize();
 
-        if (prefs.getInt('counter') == 1) {
-          fetchAudios();
-        }
-      } catch (e) {
-        print(e);
-      }
-    });
 
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return const start_page();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: FutureBuilder(
+        future: initializePrefs(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Scaffold(
+              body: Center(child: CircularProgressIndicator()),
+            );
+          } else if (snapshot.hasError) {
+            return Scaffold(
+              body: Center(child: Text('Error: ${snapshot.error}')),
+            );
+          } else {
+            return const start_page();
+          }
+        },
+      ),
+    );
   }
 }
+
+

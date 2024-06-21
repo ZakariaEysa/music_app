@@ -2,6 +2,7 @@ import 'package:music_player2/serveses/staticVariables.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../main.dart';
+import 'FetchAudio.dart';
 
 Future<void> FavouritesList_Set( List<String> Favorites ) async {
 
@@ -16,14 +17,15 @@ Future<void> FavouritesList_Set( List<String> Favorites ) async {
 
 
 }
-
-Future<void> sharedInitlize() async {
+Future<void> initializePrefs() async {
   try {
+
     prefs = await SharedPreferences.getInstance();
-  }catch (e){
-
-    print(e);
-
+    if (prefs.getInt('counter') == 1)  {
+     await  fetchAudios();
+    }
+  } catch (e) {
+    print('Error initializing preferences: $e');
   }
 }
 

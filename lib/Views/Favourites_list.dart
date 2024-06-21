@@ -4,6 +4,7 @@ import 'package:music_player2/main.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import 'dart:convert';
 import '../models/audio_model.dart';
+import '../serveses/Custom_ListTile.dart';
 import '../serveses/custom_songmodel.dart';
 import '../serveses/staticVariables.dart';
 
@@ -16,6 +17,7 @@ List<String> FavoritesUri=[];
 
 void FavouritesList_Get() {
   FavoritesUri = prefs.getStringList('Favourites') ?? [];
+  Favorites.clear();
   for (SongModel song in audios1) {
     if (FavoritesUri.contains(song.uri)) {
 
@@ -53,12 +55,9 @@ class FavouritesList extends StatelessWidget {
                     },
                   ));
                 },
-                child: ListTile(
-                  leading: Icon(Icons.music_note),
-                  title: Text(Favorites[index].title),
-                  subtitle: Text(Favorites[index].artist ?? ""),
-                  trailing: Icon(Icons.more_horiz),
-                ),
+              child:CustomListTile(name:  Favorites[index].displayName ,artist: Favorites[index].artist!)
+
+
               )),
     );
   }

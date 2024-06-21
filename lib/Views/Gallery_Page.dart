@@ -154,7 +154,8 @@ class _Pupular_Singles_ListState extends State<Pupular_Singles_List> {
               ));
             },
             child: Pupular_Singles(
-              Textt: audios1[index].title.substring(4, 20),
+
+              Textt: audios1[index].displayName,
               Pictures: "assets/Rectangle 32.png",
             ),
           );
@@ -195,13 +196,17 @@ class Pupular_Singles extends StatelessWidget {
             Container(
                 padding: const EdgeInsets.all(13),
                 alignment: Alignment.topCenter,
-                child: Text(
+                child:  Text(
                   Textt!,
                   style: const TextStyle(
-                      color: Colors.white70,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20),
-                )),
+                    height: 1.3,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                  textAlign: TextAlign.left,
+                ),),
             const Spacer(
               flex: 1,
             ),
@@ -266,28 +271,28 @@ class Custmo_ButtomNavigatorBar extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            width: 20,
+            width: 40,
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 10, bottom: 13),
-            child: Column(
-              children: [
-                IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.search,
-                      color: Colors.white,
-                    )),
-                const Text(
-                  "Search ",
-                  style: TextStyle(color: Colors.white),
-                )
-              ],
-            ),
-          ),
-          const SizedBox(
-            width: 20,
-          ),
+          // Padding(
+          //   padding: const EdgeInsets.only(left: 10, bottom: 13),
+          //   child: Column(
+          //     children: [
+          //       IconButton(
+          //           onPressed: () {},
+          //           icon: const Icon(
+          //             Icons.search,
+          //             color: Colors.white,
+          //           )),
+          //       const Text(
+          //         "Search ",
+          //         style: TextStyle(color: Colors.white),
+          //       )
+          //     ],
+          //   ),
+          // ),
+          // const SizedBox(
+          //   width: 20,
+          // ),
           Padding(
             padding: const EdgeInsets.only(left: 10, bottom: 13),
             child: Column(
@@ -311,7 +316,7 @@ class Custmo_ButtomNavigatorBar extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            width: 20,
+            width: 40,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 10, bottom: 13),
@@ -337,7 +342,7 @@ class Custmo_ButtomNavigatorBar extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            width: 20,
+            width: 40,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 10, bottom: 13),

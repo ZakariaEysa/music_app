@@ -25,19 +25,13 @@ class _start_pageState extends State<start_page> {
   Widget build(BuildContext context) {
     Widget homeWidget = const Text("Please Allow Permission");
 
-
-
-    if (prefs.getInt('counter') == null)  {
+    if (prefs.getInt('counter') == null) {
       homeWidget = Home_Page();
     } else {
-
-       Future.delayed(const Duration(milliseconds:100), () async{
+      Future.delayed(const Duration(milliseconds: 100), () async {
         await fetchAudios();
-
-
-       });
-       homeWidget = Gallery_Page();
-
+      });
+      homeWidget = Gallery_Page();
     }
 
     return MaterialApp(
@@ -48,12 +42,7 @@ class _start_pageState extends State<start_page> {
           allsongs.id: (context) => const allsongs(),
           ElDossrieallsongs.id: (context) => const ElDossrieallsongs(),
         },
-
         theme: ThemeData.dark(),
-        home: homeWidget
-
-        //   home: Audio_Model(),
-        // home: allsongs(),
-        );
+        home: homeWidget);
   }
 }
