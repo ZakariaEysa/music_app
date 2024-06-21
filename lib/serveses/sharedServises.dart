@@ -1,7 +1,6 @@
 import 'package:music_player2/serveses/staticVariables.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../main.dart';
 import 'FetchAudio.dart';
 
 Future<void> FavouritesList_Set( List<String> Favorites ) async {

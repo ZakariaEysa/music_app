@@ -1,11 +1,7 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:music_player2/main.dart';
 import 'package:on_audio_query/on_audio_query.dart';
-import 'dart:convert';
 import '../models/audio_model.dart';
 import '../serveses/Custom_ListTile.dart';
-import '../serveses/custom_songmodel.dart';
 import '../serveses/staticVariables.dart';
 
 
@@ -25,8 +21,8 @@ void FavouritesList_Get() {
       }
     }
   }
+  Favorites=Favorites.reversed.toList();
 
-  print(Favorites.length);
 }
 
 class FavouritesList extends StatelessWidget {
@@ -38,7 +34,7 @@ class FavouritesList extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Music List"),
+        title: const Text("Music List"),
       ),
       body: ListView.builder(
           itemCount: Favorites.length,

@@ -7,7 +7,7 @@ import 'package:rxdart/rxdart.dart';
 
 
 class Audio_Model extends StatefulWidget {
-   Audio_Model({Key? key,  URI,IMG}) : super(key: key);
+   Audio_Model({super.key,  URI,IMG});
 
   static String ?URI;
    static  String ?IMG;
@@ -59,11 +59,8 @@ class Audio_ModelState extends State<Audio_Model> with WidgetsBindingObserver {
         });
     // Try to load audio from a source and catch any errors.
     try {
-      print(Audio_Model.URI);
 
-      // AAC example: https://dl.espressif.com/dl/audio/ff-16b-2c-44100hz.aac
       await _player.setAudioSource(AudioSource.uri(Uri.parse(
-        //  "https://s3.amazonaws.com/scifri-episodes/scifri20181123-episode.mp3"
 
           Audio_Model.URI!
         )));
@@ -160,7 +157,7 @@ class Audio_ModelState extends State<Audio_Model> with WidgetsBindingObserver {
 class ControlButtons extends StatelessWidget {
   final AudioPlayer player;
 
-  const ControlButtons(this.player, {Key? key}) : super(key: key);
+  const ControlButtons(this.player, {super.key});
 
   @override
   Widget build(BuildContext context) {

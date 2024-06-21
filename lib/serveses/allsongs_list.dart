@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:music_player2/models/audio_model.dart';
 import 'package:music_player2/serveses/staticVariables.dart';
 
-import '../main.dart';
 import 'Custom_ListTile.dart';
 
 class allsongs extends StatefulWidget {
-  const allsongs({Key? key}) : super(key: key);
+  const allsongs({super.key});
   static String id = "all_songs";
 
   @override
@@ -18,7 +17,7 @@ class _allsongs extends State<allsongs> {
   Widget build(BuildContext context) {
     return  Scaffold(
         appBar: AppBar(
-          title: Text("Music List"),
+          title: const Text("Music List"),
         ),
         body: ListView.builder(
             itemCount: audios1.length,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'Gallery_Page.dart';
+import '../serveses/Discovery_page.dart';
 
 class Discography_Pics_row extends StatefulWidget {
   const Discography_Pics_row({

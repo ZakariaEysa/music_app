@@ -29,3 +29,40 @@
 //   ),
 // ),
 //   const Discography_Pics_row(),
+
+import 'package:flutter/material.dart';
+class Row_Pictures extends StatelessWidget {
+  Row_Pictures({super.key, this.Pictures});
+
+  String? Pictures;
+
+  @override
+  Widget build(BuildContext context) {
+    Pictures ??= "assets/Rectangle 32.png";
+    return Container(
+        margin: const EdgeInsets.all(10),
+        height: 300,
+        width: 130,
+        child: Column(
+          children: [
+            Image.asset(
+              '$Pictures',
+              fit: BoxFit.fill,
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Container(
+                margin: const EdgeInsets.only(left: 7),
+                alignment: Alignment.bottomLeft,
+                child: const Text(
+                  "Dead inside",
+                  style: TextStyle(
+                      color: Colors.white70,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold),
+                ))
+          ],
+        ));
+  }
+}

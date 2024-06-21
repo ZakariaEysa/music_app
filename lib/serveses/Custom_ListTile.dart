@@ -8,7 +8,7 @@ class CustomListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  ListTile(
-      leading: Icon(Icons.music_note),
+      leading: const Icon(Icons.music_note),
       title: Text(
         name,
         style: const TextStyle(
@@ -20,8 +20,8 @@ class CustomListTile extends StatelessWidget {
         maxLines: 2,
         textAlign: TextAlign.left,
       ),
-      subtitle: Text(artist ?? ""),
-      trailing: Icon(Icons.more_horiz),
+      subtitle: Text(artist ?? " "),
+      trailing: const Icon(Icons.more_horiz),
     );
   }
 }

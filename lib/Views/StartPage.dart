@@ -31,13 +31,13 @@ class _start_pageState extends State<start_page> {
       Future.delayed(const Duration(milliseconds: 100), () async {
         await fetchAudios();
       });
-      homeWidget = Gallery_Page();
+      homeWidget = const Gallery_Page();
     }
 
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         routes: {
-          Gallery_Page.id: (context) => Gallery_Page(),
+          Gallery_Page.id: (context) => const Gallery_Page(),
           Home_Page.id: (context) => Home_Page(),
           allsongs.id: (context) => const allsongs(),
           ElDossrieallsongs.id: (context) => const ElDossrieallsongs(),
