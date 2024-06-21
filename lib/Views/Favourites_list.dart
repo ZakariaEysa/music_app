@@ -8,9 +8,6 @@ import '../serveses/Custom_ListTile.dart';
 import '../serveses/custom_songmodel.dart';
 import '../serveses/staticVariables.dart';
 
-List<SongModel> Favorites = [];
-List<String> FavoritesUri=[];
-
 
 
 

@@ -6,6 +6,7 @@ import 'package:on_audio_query/on_audio_query.dart';
 import '../Views/Favourites_list.dart';
 import '../Views/Gallery_Page.dart';
 import '../main.dart';
+import 'Custom_Navigation_Bar.dart';
 
 class ElDossrieallsongs extends StatefulWidget {
   const ElDossrieallsongs({Key? key}) : super(key: key);
