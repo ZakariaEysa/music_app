@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:music_player2/Views/StartPage.dart';
 import 'package:music_player2/serveses/sharedServises.dart';
 
-
-void main()  {
-
-
+void main() {
   runApp(const MyApp());
 }
 
@@ -19,8 +16,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   void initState() {
-
-
     super.initState();
   }
 
@@ -33,7 +28,13 @@ class _MyAppState extends State<MyApp> {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Scaffold(
-              body: Center(child: CircularProgressIndicator()),
+              body: Center(
+                  child: Column(
+                children: [
+                  CircularProgressIndicator(),
+                  Text("Please Wait while Retrieving The MP3 Files")
+                ],
+              )),
             );
           } else if (snapshot.hasError) {
             return Scaffold(
@@ -47,5 +48,3 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-
-

@@ -74,6 +74,10 @@ class _Home_PageState extends State<Home_Page> {
 
 
 
+                            incrindex();
+
+                            Navigator.pushNamed(context, Gallery_Page.id);
+
 
 
 

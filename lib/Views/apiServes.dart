@@ -9,7 +9,5 @@ class newServes {
     Response response = await dio.get('https://api.spacexdata.com/v4/rockets');
 
     List<dynamic> JsonData = await response.data;
-    // print(JsonData);
-    // print(JsonData[0]["height"]["meters"]);
   }
 }
